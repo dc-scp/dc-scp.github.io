@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+	<head>
+		<title>Roll the dice</title>
+		<style>
+			body, input { font-family: Arial, Helvetica, "sans-serif"; font-size: 15px; }
+			body { text-align:center; }
+		</style>
+	</head>
+
+	<body>
+		<h1>Dice Roll</h1>
+
+
+		<form name="diceRoll">
+			<div id="diceImage"> </div> <!-- Empty div to contain random dice image -->
+			Enter number (1-6): <input type="text", name="answer">
+			<button id="btn" type="button" onClick="rollDice();">Place the dice</button>
+		</form>
+
+		<script>
+			function rollDice(){
+				var dice = ["Roll1.jpeg","Roll2.jpeg","Roll3.jpeg","Roll4.jpeg","Roll5.jpeg","Roll6.jpeg"];
+				var roll =document.forms["diceRoll"]["answer"].value;
+				if (roll<6 && roll>0) {
+					roll--;
+					document.getElementById("diceImage").innerHTML="<img src='"+dice[roll]+"'>";
+				}
+				else {
+					document.getElementById("diceImage").innerHTML="<p style = color:red> You must choose a number between 1 and 6!</p>";
+				}
+			}
+			rollDice();
+		</script>
+
+	</body>
+</html>

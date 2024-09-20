@@ -4,9 +4,11 @@
         <script>
             function myTable() {
                 var s = ""
-                var x = document["rows"].value
-                for (var i = 1;i<13;i++) {
-                    s = s + i + " time 5 equals " + (i*x) + "<br>" 
+                var x = document.forms["tablez"]["rows"].value
+                var y = document.forms["tablez"]["num"].value
+                x ++
+                for (var i = 1;i<x;i++) {
+                    s = s + i + " times "+y+" equals " + (i*y) + "<br>" 
                 }
                 var myElement = document.getElementById("table")
                 myElement.innerHTML = s
@@ -17,9 +19,9 @@
     <body>
 
 
-        <form onsubmit="return myTable()">
-            My Form
-            Rows: <input id="rows" type="text",name="rows">
+        <form onsubmit="return myTable()", name="tablez">
+            Number: <input type="text", name="num">
+            Rows: <input type="text", name="rows">
             <input type="submit">
         </form>
         My Table:
